@@ -1,0 +1,7 @@
+*.class
+*.xml
+*.properties
+*.MF
+*.prefs
+*.project
+*.classpath
