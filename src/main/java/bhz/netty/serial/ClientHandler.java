@@ -13,22 +13,21 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
 	
 	@Override
 	 public void channelActive(ChannelHandlerContext ctx) throws Exception {
-		int i = 0;
-//		for(int i = 0; i < 1; i++ ){
+		for(int i = 1; i < 6; i++ ){
 			System.out.println("im client");
 			Req req = new Req();
 			req.setId("" + i);
 			req.setName("pro" + i);
 			req.setRequestMessage("数据信息" + i);	
-//			String path = System.getProperty("user.dir") + File.separatorChar + "sources" +  File.separatorChar + "001.jpg";
-//			File file = new File(path);
-//	        FileInputStream in = new FileInputStream(file);  
-//	        byte[] data = new byte[in.available()];  
-//	        in.read(data);  
-//	        in.close(); 
-//			req.setAttachment(GzipUtils.gzip(data));
+			String path = System.getProperty("user.dir") + File.separatorChar + "sources" +  File.separatorChar + "00"+i+".jpg";
+			File file = new File(path);
+	        FileInputStream in = new FileInputStream(file);  
+	        byte[] data = new byte[in.available()];  
+	        in.read(data);  
+	        in.close(); 
+			req.setAttachment(GzipUtils.gzip(data));
 			ctx.writeAndFlush(req);
-//		}
+		}
 	}
 
 	@Override

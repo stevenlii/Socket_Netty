@@ -35,7 +35,7 @@ public class Client {
 		});
 		
 		ChannelFuture cf = b.connect("127.0.0.1", 8765).sync();
-
+		
 		cf.channel().closeFuture().sync();
 		group.shutdownGracefully();
 	}
